@@ -2,7 +2,7 @@
 
 Adds a **"Continue with Google"** button to your WordPress login page using secure OAuth 2.0.
 
----
+
 
 ## Requirements
 
@@ -10,7 +10,7 @@ Adds a **"Continue with Google"** button to your WordPress login page using secu
 - PHP 7.4+
 - An HTTPS-enabled site (required by Google for production)
 
----
+
 
 ## Step 1 — Install the Plugin
 
@@ -18,7 +18,7 @@ Adds a **"Continue with Google"** button to your WordPress login page using secu
 2. Go to **WordPress Admin → Plugins → Installed Plugins**
 3. Find **Google Login for WordPress** and click **Activate**
 
----
+
 
 ## Step 2 — Create Google OAuth Credentials
 
@@ -35,7 +35,7 @@ Adds a **"Continue with Google"** button to your WordPress login page using secu
    - Click **Create**
 5. Copy your **Client ID** and **Client Secret** — you'll need them in Step 4
 
----
+
 
 ## Step 3 — Find Your Redirect URI
 
@@ -48,7 +48,7 @@ Adds a **"Continue with Google"** button to your WordPress login page using secu
 
 > ⚠️ The URI must match **exactly** — no trailing slash differences, no HTTP vs HTTPS mismatch.
 
----
+
 
 ## Step 4 — Configure the Plugin
 
@@ -58,7 +58,7 @@ Adds a **"Continue with Google"** button to your WordPress login page using secu
 4. Click **Save Settings**
 5. The status table at the bottom of the page should show ✅ for all items
 
----
+
 
 ## Step 5 — Test It
 
