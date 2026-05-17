@@ -1,0 +1,194 @@
+/**
+ * Google Login Button Styles
+ *
+ * Goals:
+ * - Match Google's official button design guidelines
+ * - Integrate naturally with WordPress's default login page
+ * - Be responsive (look good on mobile and desktop)
+ * - Minimal footprint — only what's needed, nothing more
+ *
+ * @package Google_Login_WP
+ */
+
+/* ==========================================================================
+   SEPARATOR ("or" divider between wp-login form and Google button)
+   ========================================================================== */
+
+/**
+ * The separator is a horizontal line with "or" text in the middle.
+ * Like this:  ——————————— or ————————————
+ *
+ * We achieve this with flexbox:
+ * [flex line] [text] [flex line]
+ */
+.glwp-login-separator {
+    display: flex;
+    align-items: center;
+    /* Vertically center the text with the lines */
+    margin: 20px 0 16px;
+    /* Space above (after the wp-login form) and below */
+    color: #757575;
+    /* Neutral grey — not too prominent */
+    font-size: 13px;
+}
+
+/* The lines on either side of "or" — created with CSS pseudo-elements */
+.glwp-login-separator::before,
+.glwp-login-separator::after {
+    content: '';
+    flex: 1;
+    /* Grow to fill available space */
+    height: 1px;
+    background: #ddd;
+    /* Light grey line */
+}
+
+.glwp-login-separator::before {
+    margin-right: 12px;
+    /* Gap between line and "or" text */
+}
+
+.glwp-login-separator::after {
+    margin-left: 12px;
+    /* Gap between "or" text and line */
+}
+
+/* ==========================================================================
+   BUTTON WRAPPER
+   ========================================================================== */
+
+.glwp-google-btn-wrap {
+    margin-bottom: 20px;
+    /* Space below the button */
+}
+
+/* ==========================================================================
+   THE GOOGLE BUTTON
+   ========================================================================== */
+
+/**
+ * Design follows Google's official "Sign in with Google" button guidelines:
+ * https://developers.google.com/identity/branding-guidelines
+ *
+ * Key requirements from Google's guidelines:
+ * - White background
+ * - Google's blue (#4285F4) or white
+ * - Rounded corners
+ * - Google "G" logo on the left
+ * - "Continue with Google" text
+ */
+.glwp-google-btn {
+    display: flex;
+    /* Flexbox for icon + text layout */
+    align-items: center;
+    /* Vertically center icon and text */
+    justify-content: center;
+    /* Horizontally center the content */
+    width: 100%;
+    /* Full width to match WordPress login fields */
+    padding: 10px 16px;
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+    /* Google's official subtle border color */
+    border-radius: 4px;
+    /* Slightly rounded — Google's standard */
+    cursor: pointer;
+    text-decoration: none;
+    /* Remove underline from <a> tag */
+    color: #3c4043;
+    /* Google's text color for the button */
+    font-family: 'Google Sans', Roboto, arial, sans-serif;
+    /* Google's font stack */
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    /* Smooth hover effect */
+    box-sizing: border-box;
+    /* Padding included in width calculation */
+}
+
+/* Hover state */
+.glwp-google-btn:hover {
+    background-color: #f8faff;
+    /* Very slight blue tint on hover */
+    box-shadow: 0 1px 3px rgba(66, 133, 244, 0.3);
+    /* Subtle blue glow */
+    border-color: #4285F4;
+    /* Google blue border on hover */
+    color: #1a73e8;
+    /* Google link blue text on hover */
+    text-decoration: none;
+    /* Ensure no underline on hover */
+}
+
+/* Focus state — important for keyboard navigation and accessibility */
+.glwp-google-btn:focus {
+    outline: 2px solid #4285F4;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+}
+
+/* Active (click) state */
+.glwp-google-btn:active {
+    background-color: #eff3fb;
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   BUTTON ICON (Google "G" SVG)
+   ========================================================================== */
+
+.glwp-google-icon {
+    display: flex;
+    /* Flexbox container for the SVG */
+    align-items: center;
+    margin-right: 10px;
+    /* Space between icon and text */
+    flex-shrink: 0;
+    /* Don't let the icon shrink if space is tight */
+}
+
+.glwp-google-icon svg {
+    display: block;
+    /* Remove inline SVG's default extra spacing */
+}
+
+/* ==========================================================================
+   BUTTON TEXT
+   ========================================================================== */
+
+.glwp-google-btn-text {
+    flex: 1;
+    /* Take remaining space */
+    text-align: center;
+    /* Center text within its space */
+    /* WHY center when the icon takes space on the left?
+	   The icon uses margin-right, and the text flex:1 centers within
+	   the remaining space. This makes the text feel centered overall. */
+}
+
+/* ==========================================================================
+   ERROR MESSAGE STYLING
+   ========================================================================== */
+
+/**
+ * WordPress's default login page already has .message.error styles,
+ * but we add a small enhancement for ours.
+ */
+#glwp-login-error {
+    margin-top: 8px;
+}
+
+/* ==========================================================================
+   RESPONSIVE — Mobile Adjustments
+   ========================================================================== */
+
+@media screen and (max-width: 400px) {
+
+    /* WordPress login form is ~320px on mobile */
+    .glwp-google-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
