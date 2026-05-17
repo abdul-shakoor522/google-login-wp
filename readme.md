@@ -66,33 +66,6 @@ Adds a **"Continue with Google"** button to your WordPress login page using secu
 2. You should see a **"Continue with Google"** button below the login form
 3. Click it → approve on Google → you should land on your dashboard
 
----
-
-## Troubleshooting
-
-| Problem | Fix |
-|---------|-----|
-| Button doesn't appear | Check that Client ID is saved in Settings |
-| "Redirect URI mismatch" error from Google | Make sure the URI in Google Console matches exactly what's shown in Settings |
-| "Security check failed" error | The login session expired — try again (state tokens last 10 minutes) |
-| "Token failed" error | Double-check your Client Secret is correct |
-| Nothing happens after Google approval | Enable debug logging (see below) and check `wp-content/debug.log` |
-
-### Enable Debug Logging
-
-Add these lines to `wp-config.php` on your local/dev site:
-
-```php
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
-define( 'WP_DEBUG_DISPLAY', false );
-```
-
-Then check `wp-content/debug.log` for lines starting with `[Google Login WP]`.
-
-> 🚫 Never enable `WP_DEBUG` on a live production site.
-
----
 
 ## File Structure
 
@@ -109,17 +82,6 @@ google-login-wp/
     └── google-button.css    ← Button styling
 ```
 
----
-
-## Security Notes
-
-- The **Client Secret** is stored in the WordPress database. For extra security on high-value sites, define it as a constant in `wp-config.php`:
-  ```php
-  define( 'GLWP_CLIENT_SECRET', 'your-secret-here' );
-  ```
-- Always use HTTPS in production — Google requires it and it protects your users
-
----
 
 ## License
 
