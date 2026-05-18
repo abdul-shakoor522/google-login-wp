@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name:       Google Login for WordPress
- * Plugin URI:        https://yourwebsite.com/google-login-wp
+ * Plugin URI:        https://shakoor-wpdev.vercel.app
  * Description:       Adds a secure "Continue with Google" button to the WordPress login page using OAuth 2.0.
  * Version:           1.0.0
- * Author:            Your Name
- * Author URI:        https://yourwebsite.com
+ * Author:            Shakoor
+ * Author URI:        https://shakoor-wpdev.vercel.app
  * License:           GPL-2.0+
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       google-login-wp
@@ -14,6 +14,7 @@
  *
  * @package Google_Login_WP
  */
+
 
 // =============================================================================
 // SECURITY GATE — THE MOST IMPORTANT LINE IN ANY PLUGIN
